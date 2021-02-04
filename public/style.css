@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    background: #F2EFE6;
+}
+
+header, section, footer, aside, nav, article {
+    display: block;
+}
+
+header a img.logo {
+    margin-bottom: -16px;
+}
+
+header {
+    background: #1b75bc;
+    height: 100px;
+    text-align: left;
+    padding: 25px 50px 0;
+}
+
+header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+header h1 a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    width: 90%;
+    margin: auto;
+
+    background: #ffffff;
+
+    padding: 20px;
+    margin-bottom: 100px;
+
+    border: 1px #f2efe6 solid;
+
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    -moz-border-radius-bottomleft: 7px;
+    -moz-border-radius-bottomright: 7px;
+    -webkit-border-bottom-left-radius: 7px;
+    -webkit-border-bottom-right-radius: 7px;
+    -moz-border-radius-bottomleft: 7px;
+    -moz-border-radius-bottomright: 7px;
+}
+
+footer {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    background: #666666;
+}
+
+.copyright {
+    color: #f2efe6;
+    float: left;
+}
+
+.copyright a {
+    text-decoration: none;
+    color: white;
+}
+
+.copyright a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.copyright p {
+    margin: 10px 0 0 20px;
+}
+
+aside {
+    width: 200px;
+    float: left ;
+}
+
+article {
+    margin-left: 220px;
+}
+
+aside ul.menu {
+    list-style: none;
+    background: #F2EFE6;
+    border-radius: 7px;
+    padding: 20px;
+}
+
+
+
+
+table {
+    border-spacing: 0 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    width: -webkit-fill-available;
+
+}
+th {
+    padding: 10px 20px;
+    background: #56433D;
+    color: #F9C941;
+    border-right: 2px solid;
+    font-size: 0.9em;
+}
+th:first-child {
+    text-align: left;
+}
+th:last-child {
+    border-right: none;
+}
+td {
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-top: 2px solid #56433D;
+    border-bottom: 2px solid #56433D;
+    border-right: 2px solid #56433D;
+}
+td:first-child {
+    border-left: 2px solid #56433D;
+    border-right: none;
+}
+td:nth-child(2){
+    text-align: left;
+}
