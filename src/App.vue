@@ -1,21 +1,12 @@
 <template>
 
-<div>
+<div id="app">
 
 
-  <header>
-    <h1><a href="#">Данные по сотрудникам</a></h1>
-  </header>
+
 
   <div class="content">
-    <aside>
-      <nav>
-        <ul class="menu">
-          <li><a href="#">Главная страница</a></li>
-          <li><a href="#">Не главная</a></li>
-        </ul>
-      </nav>
-    </aside>
+
 
     <article>
       <h3>Наши сотрудники</h3>
@@ -39,23 +30,20 @@
           <td>
             <div :class="{ former: myValue}">
               Вы можете добавить сотрудника:
-                <button id="myBtn">Открыть окно</button>
-
-
-                <div id="myModal" class="modal">
-
-
+                <button id="myBtn" v-on:click="openmodal">Открыть окно</button>
+                <div id="myModal" class="modal" style="display: none">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span class="close">&times;</span>
+                            <span class="close" v-on:click="closemodal">&times;</span>
                             <h2>Шапка модального окна</h2>
                         </div>
                         <div class="modal-body">
-                            <p>Какой-то текст в теле модального окна</p>
-                            <p>Ещё другой текст...</p>
+                            <p>ФИО <input type="textarea"></p>
+                            <p>Отдел <select><option>Бухгалтерия</option></select></p>
+                            <p>Просто какие то данные</p>
                         </div>
                         <div class="modal-footer">
-                            <h3>Футер модального окна</h3>
+                            <button id="myBtn2">Добавить</button>
                         </div>
                     </div>
 
@@ -82,72 +70,60 @@
 </div>
 </template>
 
-
 <script>
-  var modal = document.getElementById('myModal');
 
-
-  var btn = document.getElementById("myBtn");
-
-
-  var span = document.getElementsByClassName("close")[0];
-
-
-  btn.onclick = function() {
-    modal.style.display = 'block';
-  }
-
-
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-
-
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
 </script>
+
 <script>
     import Select2 from 'v-select2-component';
 
     export default {
+
         // declare Select2Component
         components: {Select2},
+
         data() {
 
             return {
               href:"https://yandex.ru/search/?text=dom%20события%20список&lr=16&src=suggest_T",
                 myValue: "",
                 myOptions: ['Смирнова Наталия Алексеевна', 'Гудкова Анна Александровна', 'Абрамова Юлия Валерьевна'],// or [{id: key, text: value}, {id: key, text: value}]
-                otdels: ['Бухгалтерия', 'Информатика', 'Закупки'],
-                Sotruds: [
-                    {
-                        sotrId: 1,
-                        fiosotr: 'Смирнова Наталия Алексеевна',
-                        otdelsotr: 'Бухгалтерия',
-                        emailsotr: 'smirnove@y.ru',
-                        dolsotr: 'Преподаватель литературы'
-                    },
-                    {
-                        sotrId: 2,
-                        fiosotr: 'Гудкова Анна Леонидовна',
-                        otdelsotr: 'Информатика',
-                        emailsotr: 'gudok@y.ru',
-                        dolsotr: 'Преподаватель информатики'
-                    },
-                    {
-                        sotrId: 3,
-                        fiosotr: 'Смирнова Надежда Геннадьевна',
-                        otdelsotr: 'Бухгалтерия',
-                        emailsotr: 'nadya@y.ru',
-                        dolsotr: 'Преподаватель литературы'
-                    },
+                openmodal: function () {
+                    var modal = document.getElementById('myModal');
+                    modal.style.display = "block";
+                },
+                closemodal: function(){
+                    var modal = document.getElementById('myModal');
+                    modal.style.display = "none";
+                },
+                // otdels: ['Бухгалтерия', 'Информатика', 'Закупки'],
+                // Sotruds: [
+                //     {
+                //         sotrId: 1,
+                //         fiosotr: 'Смирнова Наталия Алексеевна',
+                //         otdelsotr: 'Бухгалтерия',
+                //         emailsotr: 'smirnove@y.ru',
+                //         dolsotr: 'Преподаватель литературы'
+                //     },
+                //     {
+                //         sotrId: 2,
+                //         fiosotr: 'Гудкова Анна Леонидовна',
+                //         otdelsotr: 'Информатика',
+                //         emailsotr: 'gudok@y.ru',
+                //         dolsotr: 'Преподаватель информатики'
+                //     },
+                //     {
+                //         sotrId: 3,
+                //         fiosotr: 'Смирнова Надежда Геннадьевна',
+                //         otdelsotr: 'Бухгалтерия',
+                //         emailsotr: 'nadya@y.ru',
+                //         dolsotr: 'Преподаватель литературы'
+                //     },
+                //
+                //
+                //
+                // ],
 
-
-
-                ],
 
 
                 methods: {
@@ -156,7 +132,8 @@
                     },
                     mySelectEvent({id, text}) {
                         console.log({id, text})
-                    }
+                    },
+
 
                 },
 
@@ -165,6 +142,7 @@
 
 
         }
+
 
     }
 
@@ -184,10 +162,20 @@
         cursor: pointer;
         width: 180px;
     }
+    #myBtn2 {
+        background-color: #9C27B0;
+        color: white;
+        padding: 12px 16px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        width: 180px;
+    }
 
 
     .modal {
-        display: none; /* Hidden by default */
+        /*display: none; !* Hidden by default *!*/
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
         padding-top: 100px; /* Location of the box */
