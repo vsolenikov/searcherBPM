@@ -23,17 +23,34 @@
 
 <script>
     export default {
+
         name: "ModalWindow",
+
         data: function () {
             return {
                 show: false
             }
+
         },
+
         methods: {
+
             closeModal: function () {
                 this.show = false
+            },
+            addsotrud: function () {
+// send a POST request
+                axios({
+                    method: 'post',
+                    url: '/citizens',
+                    data: {
+                        name: 'some_name',
+                        address: 'Тутаев',
+                    }
+                });
             }
         }
+
     }
 </script>
 
